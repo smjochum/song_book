@@ -1,0 +1,43 @@
+﻿from os import listdir
+
+
+def getName(path):
+    noSlash = path.split("\\")
+    lastItem = noSlash[-1]
+    noDot = lastItem.split(".")
+    songTitle = noDot[0]
+    songTitle = songTitle.replace("_", " ")
+    songTitle = songTitle.title()
+    return songTitle
+
+def format_txt_LaTex(file):
+    "formats text into LaTex happy and songbook ready"
+    song_title = getName(file)
+    print(song_title)
+    handle = open(file, encoding="utf-8")
+    song = handle.read()
+    handle.close()
+
+    if song.startswith("\section{"):
+        return song
+
+    else:
+        song.replace("\n\n", "\n")
+        song = song.replace("#", "")
+        song = song.replace("[", "")
+        song = song.replace("]", "")
+        song= song.replace("\n", r"\\ ")
+        song= song.replace("\ufeff", "")
+
+        h = open(file, "w", encoding="utf-8")
+        h.write(r"\section{" + song_title + "}" + " " + song) # + " " + "\\"+"newpage")## 
+        h.close()
+        return song
+
+
+text_songs_list = listdir(r"C:\Users\smjoc\OneDrive\Desktop\Text songs\unprocessed - Copy - Copy")
+print(text_songs_list) #used for loop in LaTex
+
+for song in text_songs_list:
+    song_path= r"C:\Users\smjoc\OneDrive\Desktop\Text songs\unprocessed - Copy - Copy"+"\\" + song
+    format_txt_LaTex(song_path)
