@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{pdfpages}
+	%not used, can fit pdf to full page 
+	% \foreach \n in {songs}{\includepdf[fitpaper,pages={1-1}]{\n}\par}
+\usepackage[]{pgffor}
+	%for loop
+\usepackage[landscape]{geometry} 
+
+\title{SongBook!}
+% %%%%%%%%%%%%%%%%%%%7/7%%%%%%
+
+
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents 
+\twocolumn
+
+%retrieved text block from command line 
+%Section is made for each song
+%\includesgraphics can take images as arg. 
+
+\foreach \item in {Across_the_universe.pdf,A_whole_new_world.pdf,Banana_pancakes.pdf,Before_you_accuse_me.pdf,Bella_ciao.pdf,Blackbird.pdf,Blowing_in_the_wind.pdf,Build_me_up_buttercup.pdf,Dock_of_the_bay.pdf,Don_t_know_why.pdf,Don_t_worry_be_happy.pdf,Douglas_mountain.pdf,Five_hundred_miles.pdf,Folsom_prison_blues.pdf,Freight_train.pdf,Friend_of_the_devil.pdf,Hallelujah.pdf,Haul_away_Joe.pdf,Here_comes_the_sun.pdf,Hey_Jude.pdf,If_i_only_had_a_brain.pdf,I_m_yours.pdf,In_my_life.pdf,I_will_always_love_you.pdf,I_will_follow_you_into_the_dark.pdf,I_will_survive.pdf,Jolene.pdf,Knockin_on_heavens_door.pdf,La_bamba.pdf,Let_it_be.pdf,Little_boxes.pdf,Moonshadow.pdf,My_favorite_things.pdf,Northwest_passage.pdf,Ob-la-di_Ob-la-da.pdf,Penny_lane.pdf,Puff_the_magic_dragon.pdf,Redemption_song.pdf,Ripple.pdf,Rolling_in_the_deep.pdf,Scarborough_fair.pdf,Shady_Grove.pdf,Shake_sugaree.pdf,Sixteen_tons.pdf,Sons_and_daughters.pdf,South_Australia.pdf,Study_war_no_more.pdf,Sweet_baby_James.pdf,Sweet_Caroline.pdf,Sweet_home_Alabama.pdf,Swing_low_sweet_chariot.pdf,Take_me_home_country_roads.pdf,The_bare_necessities.pdf,The_great_storm_is_over.pdf,The_John_B_Sails.pdf,The_night_they_drove_old_Dixie_down.pdf,Wade_in_the_water.pdf,Wayfaring_stranger.pdf,Yesterday.pdf,You_and_I.pdf,You_ve_got_to_hide_your_love_away.pdf}{\section{}\includegraphics[]{\item}
+}
+
+
+\foreach \item in {
+Aeroplane_Over_the_sea.txt,
+bring_me_to_life.txt,cup_song.txt,
+firefly_theme_song.txt,
+Better_together-Jack_Johnson.txt,dance_dance_dance-lykke_li.txt,fidelity-Regina_spektor.txt,five_years_time-Noah_and_the_whale.txt,Hallelujah.txt,home-edward_sharp_and_the_magnetic_zeros.txt,Hotel_song-Regina_spektor.txt,Landslide.txt,samson-Regina_spektor.txt,Vincent_obrien-M_ward.txt,Whos_got_the_crack-moldy_peaches.txt
+}{\input{\item}%\newpage
+}
+
+%no double returns #python
+% upper limit 
+%text too long
+%cool borders
+%chords in separate column
+
+
+ \end{document}
